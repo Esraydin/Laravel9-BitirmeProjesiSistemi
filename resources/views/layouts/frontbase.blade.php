@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>@yield("title")</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@yield('title')</title>
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -18,7 +19,7 @@
     <link href="{{asset('assets')}}/css/flexslider.css" rel="stylesheet" />
     <link href="{{asset('assets')}}/css/style.css" rel="stylesheet" />
     <!-- Theme skin -->
-    <link href="skins/default.css" rel="stylesheet" />
+    <link href="{{asset('assets')}}/skins/default.css" rel="stylesheet" />
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -32,26 +33,23 @@
       Author: BootstrapMade.com
       Author URL: https://bootstrapmade.com
     ======================================================= -->
-    @yield("head")
-</head>
-<body>
 
+</head>
+
+<body>
 @include("home.header")
 
+
 @section('sidebar')
-  @include("home.sidebar")
+    @include("home.sidebar")
 
 @show
 
 
-@section('slidebar')
-@include("home.slider")
-@show
+
 
 @yield('content')
-<@include("home.footer")
+@include("home.footer")
 @yield('foot')
 
-</body>
-    </html>
 

@@ -1,3 +1,4 @@
+
 <footer>
     <div class="container">
         <div class="row">
@@ -103,3 +104,6 @@
 <script src="{{asset('assets')}}/js/jquery.ba-cond.min.js"></script>
 <script src="{{asset('assets')}}/js/jquery.slitslider.js"></script>
 <script src="{{asset('assets')}}/js/animate.js"></script>
+
+<!-- Template Custom JavaScript File -->
+<script src="{{asset('assets')}}/js/custom.js"></script>

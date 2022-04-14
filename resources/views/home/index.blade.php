@@ -1,63 +1,9 @@
 @extends('layouts.frontbase')
 
 @section('title', 'Bitirme Projesi Sistemi')
-@section('slider')
-    @include('home.slider')
-@endsection
 
 
 @section('content')
-    <section id="featured">
-        <!-- start slider -->
-        <!-- Slider -->
-        <div id="nivo-slider">
-            <div class="nivo-slider">
-                <!-- Slide #1 image -->
-                <img src="{{asset('assets')}}/img/slides/nivo/bg-1.jpg" alt="" title="#caption-1" />
-                <!-- Slide #2 image -->
-                <img src="{{asset('assets')}}/img/slides/nivo/bg-2.jpg" alt="" title="#caption-2" />
-                <!-- Slide #3 image -->
-                <img src="{{asset('assets')}}/img/slides/nivo/bg-3.jpg" alt="" title="#caption-3" />
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="span12">
-                        <!-- Slide #1 caption -->
-                        <div class="nivo-caption" id="caption-1">
-                            <div>
-                                <h2>Awesome <strong>features</strong></h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                                </p>
-                                <a href="#" class="btn btn-theme">Read More</a>
-                            </div>
-                        </div>
-                        <!-- Slide #2 caption -->
-                        <div class="nivo-caption" id="caption-2">
-                            <div>
-                                <h2>Fully <strong>responsive</strong></h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                                </p>
-                                <a href="#" class="btn btn-theme">Read More</a>
-                            </div>
-                        </div>
-                        <!-- Slide #3 caption -->
-                        <div class="nivo-caption" id="caption-3">
-                            <div>
-                                <h2>Very <strong>customizable</strong></h2>
-                                <p>
-                                    Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
-                                </p>
-                                <a href="#" class="btn btn-theme">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end slider -->
-    </section>
     <section class="callaction">
         <div class="container">
             <div class="row">
@@ -167,7 +113,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 design" data-id="id-1" data-type="icon">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="{{asset('assets')}}/img/works/full/image-02-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Office" href="img/works/full/image-02-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
@@ -178,7 +124,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="{{asset('assets')}}/img/works/full/image-03-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-03-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
@@ -200,7 +146,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 photography" data-id="id-4" data-type="web">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Sea" href="{{asset('assets')}}/img/works/full/image-05-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Sea" href="img/works/full/image-05-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
@@ -211,7 +157,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 photography" data-id="id-5" data-type="icon">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Clouds" href="{{asset('assets')}}/img/works/full/image-06-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="Clouds" href="img/works/full/image-06-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
@@ -222,7 +168,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 photography" data-id="id-2" data-type="illustrator">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="{{asset('assets')}}/img/works/full/image-07-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Mountains" href="img/works/full/image-07-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
@@ -233,7 +179,7 @@
                                 <!-- Item Project and Filter Name -->
                                 <li class="item-thumbs span3 design" data-id="id-0" data-type="web">
                                     <!-- Fancybox - Gallery Enabled - Title - Full Image -->
-                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Dark" href="{{asset('assets')}}/img/works/full/image-08-full.jpg">
+                                    <a class="hover-wrap fancybox" data-fancybox-group="gallery" title="The Dark" href="img/works/full/image-08-full.jpg">
                                         <span class="overlay-img"></span>
                                         <span class="overlay-img-thumb font-icon-plus"></span>
                                     </a>
