@@ -132,7 +132,7 @@
             <div class="row">
                 <div class="span4">
                     <div class="logo">
-                        <a href="index.html"><img src="{{asset('assets')}}/img/logo.png" alt="" class="logo" /></a>
+                        <a href="index.html"> <img src="{{asset('assets')}}/img/logo.png" alt="" class="logo" /></a>
                         <h1>Flat and trendy bootstrap template</h1>
                     </div>
                 </div>
