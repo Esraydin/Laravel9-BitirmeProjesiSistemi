@@ -21,7 +21,6 @@
                     <th style="width: 10px">Id</th>
                     <th>Title</th>
                     <th>Keywords</th>
-                    <th>Description</th>
                     <th>Image</th>
                     <th>Status</th>
                     <th style="width: 40px">Edit</th>
@@ -36,12 +35,11 @@
                     <td>{{$rs->id}}</td>
                     <td>{{$rs->title}}</td>
                     <td>{{$rs->keywords}}</td>
-                    <td>{{$rs->description}}</td>
                     <td>{{$rs->image}}</td>
                     <td>{{$rs->status}}</td>
-                    <td><a href="/admin/category/edit {{$rs->id}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
-                    <td><a href="/admin/category/delete {{$rs->id}}" class="btn btn-gradient-danger btn-rounded btn-fw">Delete</a> </td>
-                    <td><a href="/admin/category/show {{$rs->id}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
+                    <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
+                    <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-gradient-danger btn-rounded btn-fw">Delete</a> </td>
+                    <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
 
 
 
