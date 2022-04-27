@@ -11,9 +11,8 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Category List</h3>
-        </div>
-
+            <a href="/admin/category/create" class="btn btn-gradient-info btn-rounded btn-fw">Add Category</a>
+    </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
@@ -38,8 +37,11 @@
                     <td>{{$rs->image}}</td>
                     <td>{{$rs->status}}</td>
                     <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
-                    <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-gradient-danger btn-rounded btn-fw">Delete</a> </td>
+                    <td><a href="/admin/category/destroy/{{$rs->id}}" class="btn btn-gradient-danger btn-rounded btn-fw"
+                           onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
                     <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
+
+
 
 
 

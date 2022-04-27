@@ -52,10 +52,10 @@
 
                         </select>
                     </div>
-                   <div  class="card-footer">
+
                     <button type="submit" class="btn btn-gradient-primary me-2">Update Data</button>
                     <button class="btn btn-light">Cancel</button>
-                   </div>
+
                 </form>
             </div>
         </div>
