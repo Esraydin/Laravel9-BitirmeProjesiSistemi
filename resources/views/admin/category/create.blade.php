@@ -5,15 +5,24 @@
 
 
 @section('content')
-    <h1>
-        Add Category
-    </h1>
+
+    <div class="page-header">
+        <h3 class="page-title">Add Category</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Category List</li>
+            </ol>
+        </nav>
+    </div>
+
+
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
 
-                <form class="form" action="/admin/category/store" method="post">
+                <form class="form" action="{{route('admin.category.create')}}" method="post">
                     @csrf
 
                     <div class="form-group">

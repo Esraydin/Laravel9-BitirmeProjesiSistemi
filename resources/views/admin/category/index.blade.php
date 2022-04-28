@@ -5,14 +5,21 @@
 
 
 @section('content')
-    <h1>
-        Category List
-    </h1>
 
+    <div class="page-header">
+        <h3 class="page-title"> Category List</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Category List</li>
+            </ol>
+        </nav>
+    </div>
     <div class="card">
         <div class="card-header">
-            <a href="/admin/category/create" class="btn btn-gradient-info btn-rounded btn-fw">Add Category</a>
+            <a href="{{route('admin.category.create')}}" class="btn btn-gradient-info btn-rounded btn-fw">Add Category</a>
     </div>
+
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
@@ -36,14 +43,10 @@
                     <td>{{$rs->keywords}}</td>
                     <td>{{$rs->image}}</td>
                     <td>{{$rs->status}}</td>
-                    <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
-                    <td><a href="/admin/category/destroy/{{$rs->id}}" class="btn btn-gradient-danger btn-rounded btn-fw"
+                    <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
+                    <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-gradient-danger btn-rounded btn-fw"
                            onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
-                    <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
-
-
-
-
+                    <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
 
                 </tr>
 

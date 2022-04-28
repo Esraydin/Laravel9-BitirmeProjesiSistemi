@@ -5,19 +5,27 @@
 
 
 @section('content')
-    <h1>
-    </h1>
+    <div class="page-header">
+        <h3 class="page-title"></h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Show Category</li>
+            </ol>
+        </nav>
+    </div>
        <div class ="row mb-2">
            <div class="col-sm-3">
-               <a href="/admin/category/edit/{{$data->id}}" class="btn btn-gradient-info btn-rounded btn-fw" style="width:100px">edit</a>
+               <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-gradient-info btn-rounded btn-fw" style="width:100px">edit</a>
 
            </div>
 
 
         <div class="col-sm-3">
-            <a href="/admin/category/destroy/{{$data->id}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
+            <a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
                 delete</a>
         </div>
+
        </div>
 
        <div class="card">
@@ -73,6 +81,4 @@
                 </form>
             </div>
         </div>
-
-
 @endsection

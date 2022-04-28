@@ -5,15 +5,23 @@
 
 
 @section('content')
-    <h1>
-        Edit Category: {{$data->title}}
-    </h1>
+
+    <div class="page-header">
+        <h3 class="page-title">Edit Category: {{$data->title}}</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+            </ol>
+        </nav>
+    </div>
+
     <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
 
-                <form class="form" action="/admin/category/update/{{$data->id}}" method="post">
+                <form class="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
                     @csrf
 
                     <div class="form-group">
