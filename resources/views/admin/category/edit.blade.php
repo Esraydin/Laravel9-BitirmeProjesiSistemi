@@ -21,7 +21,7 @@
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
 
-                <form class="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post">
+                <form class="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -51,6 +51,7 @@
                         </div>
                     </div>
 
+
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control form-control-lg " name="status">
@@ -61,8 +62,11 @@
                         </select>
                     </div>
 
-                    <button type="submit" class="btn btn-gradient-primary me-2">Update Data</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <div  class="card-footer">
+                        <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
+
+                    </div>
+
 
                 </form>
             </div>

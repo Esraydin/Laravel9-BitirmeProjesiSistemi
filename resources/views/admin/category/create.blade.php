@@ -22,7 +22,7 @@
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
 
-                <form class="form" action="{{route('admin.category.create')}}" method="post">
+                <form class="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
@@ -39,16 +39,22 @@
                         <label for="exampleInputEmail3">Description</label>
                         <input type="text" class="form-control" name="Description" placeholder="Description">
                     </div>
+
+
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <label for="exampleInputFile">Image</label>
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                            <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                          </span>
+
+                                <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                                <input type="file" class="custom-file-input" name="image">
+                                <div class="input-group-append">
+
+                         </div>
                         </div>
                     </div>
+
+
+
 
                     <div class="form-group">
                         <label>Status</label>
@@ -58,10 +64,10 @@
 
                         </select>
                     </div>
-                   <div  class="card-footer">
-                    <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
-                    <button class="btn btn-light">Cancel</button>
-                   </div>
+                    <div  class="card-footer">
+                        <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
+
+                    </div>
                 </form>
             </div>
         </div>
