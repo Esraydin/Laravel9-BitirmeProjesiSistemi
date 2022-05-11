@@ -25,10 +25,21 @@
                 <form class="form" action="{{route('admin.category.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
 
-                    <div class="form-group">
 
+                    <div class="form-group">
+                     <label >Parent Category</label>
+                        <select class="form-control select2" name="parent_id" style ="">
+                            <option value="0" selected="selected">Main Category</option>
+                            @foreach($data as $rs)
+                                <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail3">Title</label>
                         <input type="text" class="form-control" name="title" placeholder="Title">
+
                     </div>
 
                     <div class="form-group">
@@ -40,22 +51,16 @@
                         <input type="text" class="form-control" name="Description" placeholder="Description">
                     </div>
 
-
                     <div class="form-group">
-                        <label for="exampleInputFile">Image</label>
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
-
-                                <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                                <input type="file" class="custom-file-input" name="image">
-                                <div class="input-group-append">
-
-                         </div>
+                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                            <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                          </span>
                         </div>
                     </div>
-
-
-
-
                     <div class="form-group">
                         <label>Status</label>
                         <select class="form-control form-control-lg " name="status">
@@ -64,10 +69,9 @@
 
                         </select>
                     </div>
-                    <div  class="card-footer">
+
                         <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
 
-                    </div>
                 </form>
             </div>
         </div>

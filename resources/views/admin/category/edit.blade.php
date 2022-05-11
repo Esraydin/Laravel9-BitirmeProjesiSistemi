@@ -25,6 +25,17 @@
                     @csrf
 
                     <div class="form-group">
+                        <label >Parent Category</label>
+                        <select class="form-control select2" name="parent_id" style ="">
+                            <option value="0" selected="selected">Main Category</option>
+                            @foreach($datalist as $rs)
+                                <option value="{{$rs->id}}" @if($rs->id==$data->parent_id) selected="selected" @endif>
+                                {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                    <div class="form-group">
 
                         <label for="exampleInputEmail3">Title</label>
                         <input type="text" class="form-control" name="title" value="{{$data->title}}">
@@ -62,10 +73,7 @@
                         </select>
                     </div>
 
-                    <div  class="card-footer">
-                        <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
-
-                    </div>
+                        <button type="submit" class="btn btn-gradient-primary me-2">Update Data</button>
 
 
                 </form>

@@ -13,6 +13,18 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    protected $appends = [
+        'getParentsTree'
+    ];
+    public static function getParentsTree($category,$title){
+        if ($category->parent_id==0){
+            return $title;
+        }
+        $parent = Category::find($category->parent_id);
+        $title = $parent->title . ' > ' . $title;
+        return CategoryController::getParentsTree($parent,$title);
+
+    }
     public function index()
     {
         $data= Category::all();
@@ -28,7 +40,12 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+
+        $data= Category::all();
+        return view('admin.category.create',[
+            'data' => $data
+        ]);
+
     }
 
     /**
@@ -40,7 +57,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data=new Category();
-        $data->parent_id = 0;
+        $data->parent_id = $request-> parent_id;;
         $data->title = $request-> title;
         $data->keywords = $request->keywords;
         $data->description= $request->description;
@@ -77,9 +94,11 @@ class CategoryController extends Controller
      */
     public function edit(Category $category,$id)
     {
-       $data=Category::find($id);
+        $data=Category::find($id);
+        $datalist= Category::all();
         return view('admin.category.edit',[
-            'data' => $data
+            'data' => $data,
+            'datalist' => $datalist
         ]);
     }
 
@@ -94,7 +113,7 @@ class CategoryController extends Controller
     {
         //
         $data = Category::find($id);
-        $data->parent_id = 0;
+        $data->parent_id = $request-> parent_id;
         $data->title = $request-> title;
         $data->keywords = $request->keywords;
         $data->description= $request->description;
