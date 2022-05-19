@@ -43,27 +43,31 @@
                         <input type="text" class="form-control" name="title" placeholder="Title">
 
                     </div>
-
                     <div class="form-group">
                         <label for="exampleInputEmail3">Keywords</label>
                         <input type="text" class="form-control" name="keywords" placeholder="Keywords">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Description</label>
-                        <input type="text" class="form-control" name="Description" placeholder="Description">
+                        <input type="text" class="form-control" name="Description" placeholder="Subject">
                     </div>
+
                     <div class="form-group">
                         <label for="exampleInputEmail3">Detail</label>
                         <textarea id="summernote" name="detail"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Video link</label>
+                        <input type="text" class="form-control" name="Description" placeholder="Video link">
+                    </div>
 
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <label>Image</label>
+                        <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="file" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Choose Image File">
                             <span class="input-group-append">
-                            <label class="file-upload-browse btn btn-gradient-primary" >Upload</label>
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
                         </div>
                     </div>

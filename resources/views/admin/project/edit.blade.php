@@ -29,9 +29,9 @@
                     <div class="form-group">
                         <label >Parent Category</label>
                         <select class="form-control select2" name="category_id" style ="">
-                            <option value="0" selected="selected">Main Category</option>
+
                             @foreach($datalist as $rs)
-                                <option value="{{$rs->id}}" @if($rs->id==$data->parent_id) selected="selected" @endif>
+                                <option value="{{$rs->id}}" @if($rs->id==$data->category_id) selected="selected" @endif>
                                 {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
                             @endforeach
                         </select>
@@ -53,15 +53,20 @@
                             <input type="text" class="form-control" name="description"  value="{{$data->description}}">
 
                     </div>
-                    <div class="form-group">
+            <div class="form-group">
                         <label for="exampleInputEmail3">Detail</label>
                         <textarea id="summernote" name="detail">{{$data->detail}}</textarea>
+         </div>
 
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Video Link</label>
+
+                        <input type="text" class="form-control" name="vi"  value="{{$data->videolink}}">
 
                     </div>
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
                             <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
                             <span class="input-group-append">

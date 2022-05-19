@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Show Category: '.$data->title)
+@section('title', 'Show Project: '.$data->title)
 
 
 
@@ -10,19 +10,19 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Show Category</li>
+                <li class="breadcrumb-item active" aria-current="page">Show project</li>
             </ol>
         </nav>
     </div>
        <div class ="row mb-2">
            <div class="col-sm-3">
-               <a href="{{route('admin.category.edit',['id'=>$data->id])}}" class="btn btn-gradient-info btn-rounded btn-fw" style="width:100px">edit</a>
+               <a href="{{route('admin.project.edit',['id'=>$data->id])}}" class="btn btn-gradient-info btn-rounded btn-fw" style="width:100px">edit</a>
 
            </div>
 
 
         <div class="col-sm-3">
-            <a href="{{route('admin.category.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
+            <a href="{{route('admin.project.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
                 delete</a>
         </div>
 
@@ -30,7 +30,7 @@
 
        <div class="card">
             <div class="card-body">
-            <form class="form" action="/admin/category/update/{{$data->id}}" method="post">
+            <form class="form" action="/admin/project/update/{{$data->id}}" method="post">
                     @csrf
 
                     <div class="card">
@@ -41,8 +41,13 @@
                             <table class="table table-striped">
 
                                 <tr>
-                                    <th style="width: 70px">Id</th>
+                                    <th style="width: 200px">Id</th>
                                     <td>{{$data->id}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Category</th>
+                                    <td>{{$data->category_id}}</td>
+
                                 </tr>
                                 <tr>
                                     <th>Title</th>
@@ -56,9 +61,23 @@
                                 </tr>
                                 <tr>
                                     <th>Image</th>
-                                    <td></td>
+
+                                    <td>
+                                        @if($data->image)
+                                            <img src="{{Storage::url($data->image)}}" style="height:50px">
+                                        @endif
+                                    </td>
+                                <tr>
+                                    <th>Detail</th>
+                                    <td>{{$data->detail}}</td>
 
                                 </tr>
+                                <tr>
+                                    <th>Video Link</th>
+                                    <td>{{$data->videolink}}</td>
+
+                                </tr>
+
                                 <tr>
                                     <th>Status</th>
                                     <td>{{$data->status}}</td>
