@@ -24,16 +24,7 @@
 <body>
 
 
-@include("admin.header")
-@section('admin.sidebar')
-
-    @include("admin.sidebar")
-@show
 @yield('content')
-
-@include("admin.footer")
-<script src="{{asset('assets')}}/admin/assets/js/file-upload.js"></script>
-
 
 @yield('foot')
 </body>
