@@ -2,12 +2,11 @@
 
 
 use App\Http\Controllers\AdminPanel\AdminProjectController;
+use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
+use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
-use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
-
 
 
 /*
@@ -32,16 +31,18 @@ Route::get('/welcome', function () {
 });
 
 // 3- Call controller function
-Route::get('/', [HomeController::class,'index'])->name(name:'home');
+Route::get('/', [HomeController::class, 'index'])->name(name: 'home');
 
 // 4- Route -> Controller -> view
-Route::get('/test', [HomeController::class,'test'])->name(name:'test');
+Route::get('/test', [HomeController::class, 'test'])->name(name: 'test');
 
 // 5- Route with parameters
-Route::get('/param/{id}/{number}', [HomeController::class,'param'])->name(name:'param');
+Route::get('/param/{id}/{number}', [HomeController::class, 'param'])->name(name: 'param');
 
 // 6- Route with post
-Route::post('/save', [HomeController::class,'save'])->name(name:'save');
+Route::post('/save', [HomeController::class, 'save'])->name(name: 'save');
+Route::get('/project/{id}', [HomeController::class, 'project'])->name(name: 'project');
+Route::get('/categoryprojects/{id}/{slug}', [HomeController::class, 'categoryprojects'])->name(name: 'categoryprojects');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -49,9 +50,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-
 //.................... Admin Panel Routes...........................
-Route::prefix('admin')->name('admin.')->group(function (){
+Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('/', [AdminHomeController::class, 'index'])->name('index');
 
 

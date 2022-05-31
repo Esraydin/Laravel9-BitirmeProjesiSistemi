@@ -3,16 +3,24 @@
 @section('title', 'Bitirme Projesi Sistemi')
 
 
+
 @section('content')
-    <section class="callaction">
-        <div class="container">
-            <div class="row">
-                <div class="span12">
-                    <div class="big-cta">
-                        <div class="cta-text">
-                            <h3>We've created more than <span class="highlight"><strong>5000 websites</strong></span> this year!</h3>
-                        </div>
-                        <div class="cta floatright">
+@section('sidebar')
+    @include("home.sidebar")
+@show
+
+
+
+<section class="callaction">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <div class="big-cta">
+                    <div class="cta-text">
+                        <h3>We've created more than <span class="highlight"><strong>5000 websites</strong></span> this
+                            year!</h3>
+                    </div>
+                    <div class="cta floatright">
                             <a class="btn btn-large btn-theme btn-rounded" href="#">Request a quote</a>
                         </div>
                     </div>
@@ -105,12 +113,13 @@
                                         data-type="web">
                                         <!-- Fancybox - Gallery Enabled - Title - Full Image -->
                                         <a class="hover-wrap fancybox" data-fancybox-group="gallery"
-                                           title="{{$rs->title}}" href="{{Storage::url($rs->image)}}">
+                                           title="{{$rs->title}}" href="{{route('project',['id'=>$rs->id])}}">
                                             <span class="overlay-img"></span>
                                             <span class="overlay-img-thumb font-icon-plus"></span>
                                         </a>
                                         <!-- Thumb Image and Description -->
                                         <img src="{{Storage::url($rs->image)}}" alt="{{$rs->detail}}">
+
                                     </li>
                                 @endforeach
 
