@@ -52,18 +52,20 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 //.................... Admin Panel Routes...........................
 Route::prefix('admin')->name('admin.')->group(function () {
-Route::get('/', [AdminHomeController::class, 'index'])->name('index');
-
+    Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+//....................General Routes...........................
+    Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+    Route::post('/setting.update', [AdminHomeController::class, 'setting.update'])->name('setting.update');
 
 // ....................Admin Category Routes........................
-Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
-    Route::get('/', 'index')->name('index');
-    Route::get('/create', 'create')->name('create');
-    Route::post('/store', 'store')->name('store');
-    Route::get('/edit/{id}', 'edit')->name('edit');
-    Route::post('/update/{id}', 'update')->name('update');
-    Route::get('/show/{id}', 'show')->name('show');
-    Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/edit/{id}', 'edit')->name('edit');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
 });
 // ....................Admin Project Routes........................
 Route::prefix('/project')->name('project.')->controller(AdminProjectController::class)->group(function () {
