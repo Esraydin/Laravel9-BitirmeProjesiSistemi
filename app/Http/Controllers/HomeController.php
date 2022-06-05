@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -20,10 +21,42 @@ class HomeController extends Controller
         $page = 'home';
         $sliderdata = Project::limit(2)->get();
         $datalist = Project::limit(2)->get();
+        $setting = Setting::first();
         return view('home.index', [
             'page' => $page,
+            'setting' => $setting,
             'sliderdata' => $sliderdata,
             'datalist' => $datalist
+        ]);
+    }
+
+    public function about()
+    {
+
+        $setting = Setting::first();
+        return view('home.about', [
+            'setting' => $setting,
+
+        ]);
+    }
+
+    public function references()
+    {
+
+        $setting = Setting::first();
+        return view('home.references', [
+            'setting' => $setting,
+
+        ]);
+    }
+
+    public function contact()
+    {
+
+        $setting = Setting::first();
+        return view('home.contact', [
+            'setting' => $setting,
+
         ]);
     }
 

@@ -49,7 +49,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-
+//.................... Home Page Routes...........................
+Route::get('/', [HomeController::class, 'index'])->name(name: 'home');
+Route::get('/about', [HomeController::class, 'about'])->name(name: 'about');
+Route::get('/references', [HomeController::class, 'references'])->name(name: 'references');
+Route::get('/contact', [HomeController::class, 'contact'])->name(name: 'contact');
 //.................... Admin Panel Routes...........................
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('index');
