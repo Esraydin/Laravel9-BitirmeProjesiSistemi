@@ -107,6 +107,8 @@ class FaqController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Faq::find($id);
+        $data->delete();
+        return redirect(route('admin.faq.index'));
     }
 }
