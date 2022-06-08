@@ -61,6 +61,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.faq.index')}}">
+                <span class="menu-title">FAQ</span>
+                <i class="mdi mdi-message menu-icon"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{route('admin.message.index')}}">
                 <span class="menu-title">Messages</span>
                 <i class="mdi mdi-message menu-icon"></i>
