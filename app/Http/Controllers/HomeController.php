@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Message;
 use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -60,6 +61,22 @@ class HomeController extends Controller
         ]);
     }
 
+    public function storemessage(Request $request)
+    {
+        //dd($request);
+        $data = new Message();
+        $data->name = $request->input('name');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+        $data->ip = request()->ip();
+
+        $data->save();
+        return redirect()->route('contact')->with('info', 'Your message has been sent,Thank You.');
+
+    }
+
     public function project($id)
     {
 
@@ -114,4 +131,5 @@ class HomeController extends Controller
 
             ]);
     }
+
 }

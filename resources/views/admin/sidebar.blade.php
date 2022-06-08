@@ -1,5 +1,6 @@
 
 <div class="container-fluid page-body-wrapper">
+
 <!-- partial:/admin/partials/_sidebar.html -->
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
@@ -48,8 +49,8 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/product">
-                <span class="menu-title">Product</span>
+            <a class="nav-link" href="/admin/project">
+                <span class="menu-title">Project</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
             </a>
         </li>
@@ -60,7 +61,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/admin/messages">
+            <a class="nav-link" href="{{route('admin.message.index')}}">
                 <span class="menu-title">Messages</span>
                 <i class="mdi mdi-message menu-icon"></i>
             </a>
@@ -84,31 +85,17 @@
                   <div class="border-bottom">
                     <p class="text-secondary">Labels</p>
                   </div>
-                  <ul class="gradient-bullet-list mt-4" href="/admin/setting">
-                    <i class="mdi mdi-settings"></i>
-                    <li>Settings</li>
-
-                  </ul>
-                </div>
-
-              </span>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/setting">
+                <span class="menu-title">Settings</span>
+                <i class="mdi mdi-account menu-icon"></i>
+            </a>
         </li>
+
+    </ul>
+
+    </span>
+    </li>
     </ul>
 </nav>
 
-    <div class="main-panel">
-        <div class="content-wrapper">
-            <div class="page-header">
-                <h3 class="page-title">
-
-
-                </h3>
-                <nav aria-label="breadcrumb">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">
-
-
-                        </li>
-                    </ul>
-                </nav>
-            </div>

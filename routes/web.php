@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminPanel\AdminProjectController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\ImageController;
+use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -32,6 +33,9 @@ Route::get('/welcome', function () {
 
 // 3- Call controller function
 Route::get('/', [HomeController::class, 'index'])->name(name: 'home');
+Route::view('/loginuser', 'home.login');
+Route::view('/registeruser', 'home.registeruser');
+Route::get('/logoutuser', [HomeController::class, 'logout'])->name(name: 'logoutuser');
 
 // 4- Route -> Controller -> view
 Route::get('/test', [HomeController::class, 'test'])->name(name: 'test');
@@ -54,6 +58,7 @@ Route::get('/', [HomeController::class, 'index'])->name(name: 'home');
 Route::get('/about', [HomeController::class, 'about'])->name(name: 'about');
 Route::get('/references', [HomeController::class, 'references'])->name(name: 'references');
 Route::get('/contact', [HomeController::class, 'contact'])->name(name: 'contact');
+Route::post('/storemessage', [HomeController::class, 'storemessage'])->name(name: 'storemessage');
 //.................... Admin Panel Routes...........................
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('index');
@@ -82,11 +87,19 @@ Route::prefix('/project')->name('project.')->controller(AdminProjectController::
     Route::get('/destroy/{id}', 'destroy')->name('destroy');
 });
 //..................... Admin Project Image Gallery Routes........................
-Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function () {
-    Route::get('/{pid}', 'index')->name('index');
-    Route::post('/store/{pid}', 'store')->name('store');
-    Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
+    Route::prefix('/image')->name('image.')->controller(ImageController::class)->group(function () {
+        Route::get('/{pid}', 'index')->name('index');
+        Route::post('/store/{pid}', 'store')->name('store');
+        Route::get('/destroy/{pid}/{id}', 'destroy')->name('destroy');
 
-});
+    });
+//..................... Admin Message Routes........................
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+
+    });
 });
 

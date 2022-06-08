@@ -1,6 +1,10 @@
 @extends('layouts.frontbase')
 
 @section('title', 'Bitirme Projesi Sistemi')
+@section('description', $setting->title)
+@section('keyword', $setting->keyword)
+@section('icon', Storage::url($setting->icon))
+
 
 
 
