@@ -27,19 +27,12 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages">
-                <span class="menu-title">Tasks</span>
+            <a class="nav-link" href="/admin/evaluation">
+                <span class="menu-title">Evaluation</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-medical-bag menu-icon"></i>
             </a>
-            <div class="collapse" id="general-pages">
 
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/blank-page.html">Accepted Tasks</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../pages/samples/login.html">Unaccepted Tasks</a></li>
-
-                </ul>
-            </div>
         </li>
 
         <li class="nav-item">
@@ -72,14 +65,9 @@
                 <i class="mdi mdi-message menu-icon"></i>
             </a>
         </li>
+
         <li class="nav-item">
-            <a class="nav-link" href="/admin/social">
-                <span class="menu-title">Social</span>
-                <i class="mdi mdi-contacts menu-icon"></i>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/admin/users">
+            <a class="nav-link" href="/admin/user">
                 <span class="menu-title">Users</span>
                 <i class="mdi mdi-account menu-icon"></i>
             </a>
