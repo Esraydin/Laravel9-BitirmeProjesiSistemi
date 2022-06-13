@@ -1,3 +1,4 @@
+
 @extends('layouts.adminbase')
 
 @section('title', 'Settings')

@@ -79,6 +79,7 @@ Route::prefix('userpanel')->name('userpanel.')->group(function () {
     Route::get('/', [UserController::class, 'index'])->name('index');
     Route::post('/store', [UserController::class, 'store'])->name('store');
     Route::get('/create', [UserController::class, 'create'])->name('create');
+    Route::get('/edit', [UserController::class, 'edit'])->name('edit');
 
 
 });
