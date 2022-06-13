@@ -17,7 +17,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('assets')}}/admin/assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="{{asset('assets')}}/admin/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="{{asset('assets')}}/admin/assets/images/favicon.ico"/>
 
     @yield("head")
 </head>
@@ -25,6 +25,9 @@
 
 
 @yield('content')
+
+@include("admin.footer")
+<script src="{{asset('assets')}}/admin/assets/js/file-upload.js"></script>
 
 @yield('foot')
 </body>

@@ -5,13 +5,14 @@ namespace App\Http\Controllers\AdminPanel;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     protected $appends = [
         'getParentsTree'
@@ -36,7 +37,7 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -51,21 +52,22 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request)
     {
-        $data=new Category();
-        $data->parent_id = $request-> parent_id;;
-        $data->title = $request-> title;
+        $data = new Category();
+        $data->parent_id = $request->parent_id;
+        $data->title = $request->title;
         $data->keywords = $request->keywords;
         $data->description= $request->description;
         $data->status=$request->status;
-        $data->save();
+
         if($request->file('image')){
             $data->image=$request->file('image')->store('images');
         }
+        $data->save();
         return redirect('admin/category');
 
 
@@ -74,8 +76,8 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return Response
      */
     public function show(Category $category,$id)
 
@@ -89,8 +91,8 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return Response
      */
     public function edit(Category $category,$id)
     {
@@ -105,9 +107,9 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Category $category
+     * @return Response
      */
     public function update(Request $request, Category $category,$id)
     {
@@ -128,11 +130,18 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
-        //
+        $data = Category::find($id);
+        if ($data->image && Storage::disk('public')->exists($data->image)) {
+            Storage::delete($data->image);
+        }
+        $data->delete();
+
+        return redirect()->route('admin.category.index', ['id' => $id]);
+
     }
 }

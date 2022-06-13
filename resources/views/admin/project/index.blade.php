@@ -51,22 +51,25 @@
 
                         <td>
                             @if($rs->image)
-                                <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                                <img src="{{Storage::url($rs->image)}}" style="height: 50px">
                             @endif
                         </td>
                         <td><a href="{{route('admin.image.index',['pid'=>$rs->id])}}"
                                onclick="return !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
-                            <img src="{{asset('assets')}}/admin/assets/images/images.png" style="height: 50px" ></td>
+                                <img src="{{asset('assets')}}/admin/assets/images/images.png" style="height: 40px"></td>
                         </a>
                         <td>{{$rs->status}}</td>
-                        <td><a href="{{route('admin.project.edit',['id'=>$rs->id])}}" class="btn btn-gradient-info btn-rounded btn-fw">Edit</a> </td>
-                        <td><a href="{{route('admin.project.destroy',['id'=>$rs->id])}}" class="btn btn-gradient-danger btn-rounded btn-fw"
-                               onclick="return confirm('Deleting !! Are you sure?')">Delete</a> </td>
-                        <td><a href="{{route('admin.project.show',['id'=>$rs->id])}}" class="btn btn-gradient-success btn-rounded btn-fw">Show</a> </td>
+                        <td><a href="{{route('admin.project.edit',['id'=>$rs->id])}}"
+                               class="btn btn-gradient-info btn-rounded btn-fw">Edit</a></td>
+                        <td><a href="{{route('admin.project.destroy',['id'=>$rs->id])}}"
+                               class="btn btn-gradient-danger btn-rounded btn-fw"
+                               onclick="return confirm('Deleting !! Are you sure?')">Delete</a></td>
+                        <td><a href="{{route('admin.project.show',['id'=>$rs->id])}}"
+                               class="btn btn-gradient-success btn-rounded btn-fw">Show</a></td>
 
                     </tr>
 
-                    @endforeach
+                @endforeach
 
             </table>
         </div>

@@ -1,4 +1,4 @@
-</div>
+
 <!-- partial:../../partials/_footer.html -->
 <footer class="footer">
     <div class="container-fluid d-flex justify-content-between">
@@ -23,6 +23,7 @@
 <script src="{{asset('assets')}}/admin/assets/js/misc.js"></script>
 <!-- endinject -->
 <!-- Custom js for this page -->
-<!-- End custom js for this page -->
+
+
 
 

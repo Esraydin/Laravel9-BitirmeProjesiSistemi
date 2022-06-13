@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
+use App\Models\Evaluation;
 use App\Models\Faq;
 use App\Models\Message;
 use App\Models\Project;
 use App\Models\Setting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -21,8 +24,8 @@ class HomeController extends Controller
     public function index()
     {
         $page = 'home';
-        $sliderdata = Project::limit(2)->get();
-        $datalist = Project::limit(2)->get();
+        $sliderdata = Project::limit(5)->get();
+        $datalist = Project::limit(10)->get();
         $setting = Setting::first();
         return view('home.index', [
             'page' => $page,
@@ -90,26 +93,43 @@ class HomeController extends Controller
 
     }
 
+    public function storecomment(Request $request)
+    {
+
+        $data = new Comment();
+        $data->user_id = Auth::id();
+        $data->project_id = $request->input('project_id');
+        $data->subject = $request->input('subject');
+        $data->comment = $request->input('comment');
+        $data->rate = $request->input('rate');
+        $data->ip = request()->ip();
+
+        $data->save();
+        return redirect()->route('project', ['id' => $request->input('project_id')])->with('success', 'Your comment has been sent,Thank You.');
+
+    }
+
     public function project($id)
     {
 
         $data = Project::find($id);
         $images = DB::table('images')->where('project_id', $id)->get();
+        $comment = Comment::where('project_id', $id)->where('status', 'True')->get();
         return view('home.project', [
             'data' => $data,
-            'images' => $images
-
+            'images' => $images,
+            'comment' => $comment
         ]);
     }
 
     public function categoryprojects($id)
     {
 
-        $data = Project::find($id);
-        $images = DB::table('images')->where('project_id', $id)->get();
-        return view('home.project', [
-            'data' => $data,
-            'images' => $images
+        $category = Project::find($id);
+        $project = DB::table('projects')->where('category_id', $id)->get();
+        return view('home.categoryprojects', [
+            'category' => $category,
+            'project' => $project
 
         ]);
     }
@@ -143,6 +163,68 @@ class HomeController extends Controller
                 'number' => $_REQUEST["lname"]
 
             ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
+
+    public function loginadmincheck(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/admin');
+
+        }
+        return back()->withErrors([
+            'error' => 'The provided credentials do not  match  our records.',
+        ])->onlyInput('email');
+    }
+
+    public function myprojects()
+    {
+        $data = Evaluation::where('user_id', Auth::user()->id)->get();
+        return view('home.myprojects', [
+            'data' => $data
+        ]);
+
+    }
+
+    public function myevaluations()
+    {
+        $data = Project::where('user_id', Auth::user()->id)->get();
+        return view('home.myevaluations', [
+            'data' => $data
+        ]);
+
+    }
+
+    public function myreviews()
+    {
+        $data = Comment::where('user_id', Auth::user()->id)->get();
+        return view('home.myreviews', [
+            'data' => $data
+        ]);
+
+    }
+
+    public function mymessages()
+    {
+        $data = Message::where('name', Auth::user()->name)->get();
+        return view('home.mymessages', [
+            'data' => $data
+        ]);
+
     }
 
 }

@@ -5,18 +5,19 @@
 
 
 @section('content')
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Edit Category: {{$data->title}}</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
+                    </ol>
+                </nav>
+            </div>
 
-    <div class="page-header">
-        <h3 class="page-title">Edit Category: {{$data->title}}</h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Edit Category</li>
-            </ol>
-        </nav>
-    </div>
-
-    <div class="col-12 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
@@ -53,9 +54,10 @@
                     </div>
                     <div class="form-group">
                         <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled=""
+                                   placeholder="Upload Image">
                             <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -73,12 +75,12 @@
                         </select>
                     </div>
 
-                        <button type="submit" class="btn btn-gradient-primary me-2">Update Data</button>
+                    <button type="submit" class="btn btn-gradient-primary me-2">Update Data</button>
 
 
                 </form>
             </div>
         </div>
-    </div>
-
+            </div>
+        </div>
 @endsection

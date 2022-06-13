@@ -49,7 +49,6 @@ class AdminProjectController extends Controller
     public function store(Request $request)
     {
 
-
         $data=new Project();
         $data->category_id = $request-> category_id;
         $data->user_id =0 ;// $request-> category_id;
@@ -120,6 +119,7 @@ class AdminProjectController extends Controller
         }
         $data->save();
         return redirect('admin/project');
+
 
     }
 

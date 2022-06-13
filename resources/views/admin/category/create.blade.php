@@ -5,19 +5,20 @@
 
 
 @section('content')
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">Add Category</h3>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Category List</li>
+                    </ol>
+                </nav>
+            </div>
 
-    <div class="page-header">
-        <h3 class="page-title">Add Category</h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Category List</li>
-            </ol>
-        </nav>
-    </div>
 
-
-    <div class="col-12 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Category Elements</h4>
@@ -27,8 +28,8 @@
 
 
                     <div class="form-group">
-                     <label >Parent Category</label>
-                        <select class="form-control select2" name="parent_id" style ="">
+                        <label>Parent Category</label>
+                        <select class="form-control" name="parent_id" style="width:100%">
                             <option value="0" selected="selected">Main Category</option>
                             @foreach($data as $rs)
                                 <option value="{{$rs->id}}">{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs,$rs->title)}}</option>
@@ -52,10 +53,11 @@
                     </div>
 
                     <div class="form-group">
-                        <label>File upload</label>
-                        <input type="file" name="img[]" class="file-upload-default">
+                        <label>Image</label>
+                        <input type="file" name="image" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                            <input type="text" class="form-control file-upload-info" disabled=""
+                                   placeholder="Choose Image File">
                             <span class="input-group-append">
                             <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
                           </span>
@@ -70,11 +72,12 @@
                         </select>
                     </div>
 
-                        <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
+                    <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
 
                 </form>
             </div>
         </div>
-    </div>
+            </div>
+        </div>
 
 @endsection

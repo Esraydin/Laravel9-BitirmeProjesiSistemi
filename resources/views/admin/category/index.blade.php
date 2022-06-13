@@ -34,8 +34,8 @@
                         <tr>
                             <th style="width: 10px">Id</th>
 
-                            <th> Title</th>
-                            <th>Keyword</th>
+                            <th>Parent</th>
+                            <th>Title</th>
                             <th>Image</th>
                             <th>Status</th>
                             <th style="width: 40px">Edit</th>

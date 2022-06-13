@@ -26,13 +26,21 @@
             <div class="row nomargin">
                 <div class="span12">
                     <div class="headnav">
-                        <ul>
-                            <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i> Sign up</a></li>
-                            <li><a href="#mySignin" data-toggle="modal">Sign in</a></li>
-                        </ul>
+                        @auth()
+                            <li><a href="/logoutuser" data-toggle="modal">Logout</a></li>
+                        @endauth
+                        @guest()
+                            <ul>
+
+                                <li><a href="/loginuser" data-toggle="modal"><i class="icon-user"></i>Login</a></li>
+                                <li><a href="/registeruser" data-toggle="modal">Join</a></li>
+                            </ul>
+                        @endguest
+
                     </div>
                     <!-- Signup Modal -->
-                    <div id="mySignup" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySignupModalLabel" aria-hidden="true">
+                    <div id="mySignup" class="modal styled hide fade" tabindex="-1" role="dialog"
+                         aria-labelledby="mySignupModalLabel" aria-hidden="true">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h4 id="mySignupModalLabel">Create an <strong>account</strong></h4>
@@ -62,7 +70,8 @@
                                         <button type="submit" class="btn">Sign up</button>
                                     </div>
                                     <p class="aligncenter margintop20">
-                                        Already have an account? <a href="#mySignin" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Sign in</a>
+                                        Already have an account? <a href="/login" data-dismiss="modal"
+                                                                    aria-hidden="true" data-toggle="modal">Login</a>
                                     </p>
                                 </div>
                             </form>
@@ -70,7 +79,8 @@
                     </div>
                     <!-- end signup modal -->
                     <!-- Sign in Modal -->
-                    <div id="mySignin" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySigninModalLabel" aria-hidden="true">
+                    <div id="mySignin" class="modal styled hide fade" tabindex="-1" role="dialog"
+                         aria-labelledby="mySigninModalLabel" aria-hidden="true">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                             <h4 id="mySigninModalLabel">Login to your <strong>account</strong></h4>
@@ -132,7 +142,7 @@
             <div class="row">
                 <div class="span4">
                     <div class="logo">
-                        <a href="index.html"> <img src="{{asset('assets')}}/img/logo.png" alt="" class="logo"/></a>
+                        <a href="/"> <img src="{{asset('assets')}}/img/logo.png" alt="" class="logo"/></a>
                         <h1>Flat and trendy bootstrap template</h1>
                     </div>
                 </div>
@@ -142,6 +152,7 @@
                             @php
                                 use App\Http\Controllers\HomeController;$mainCategories= HomeController::maincategorylist()
                             @endphp
+
                             <nav>
                                 <ul class="nav topnav">
 
@@ -151,40 +162,32 @@
 
 
                                     <li class="dropdown">
-                                        @foreach($mainCategories as $rs)
-                                            <a href="#">Features <i class="icon-angle-down"></i></a>
-                                            <ul class="dropdown-menu">
+                                        <a href="#">Projects <i class="icon-angle-down"></i></a>
+
+                                        <ul class="dropdown-menu">
+                                            @foreach($mainCategories as $rs)
+                                                <li>
+                                                    <a href="{{route('categoryprojects',['id'=>$rs->id,'slug'=>$rs->title])}}">{{$rs->title}}</a>
+                                                </li>
+
                                                 @if(count($rs->children))
                                                     @include('home.categorytree',['children'=>$rs->children])
                                                 @endif
-
-                                                <li><a href="{{$rs->title}}">{{$rs->title}}</a></li>
-                                                <li><a href="table.html">{{$rs->title}}</a></li>
-                                                <li><a href="components.html">{{$rs->title}}</a></li>
-                                                <li class="dropdown"><a href="#">{{$rs->title}}<i
-                                                            class="icon-angle-right"></i></a>
-                                                    <ul class="dropdown-menu sub-menu-level1">
-                                                        <li><a href="index.html">AAAAAA</a></li>
-                                                        <li><a href="index-alt2.html">BBBBB</a></li>
-                                                        <li><a href="index-alt3.html">Parallax slider</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                    </li>
-                                    @endforeach
-
-                                    <li class="dropdown">
-                                        <a href="#">Portfolio <i class="icon-angle-down"></i></a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="portfolio-2cols.html">Portfolio 2 columns</a></li>
-                                            <li><a href="portfolio-3cols.html">Portfolio 3 columns</a></li>
-                                            <li><a href="portfolio-4cols.html">Portfolio 4 columns</a></li>
-                                            <li><a href="portfolio-detail.html">Portfolio detail</a></li>
+                                            @endforeach
                                         </ul>
                                     </li>
 
+
                                     <li>
+                                        <a href="{{route('faq')}}">FAQ </a>
+                                    </li>
+                                    <li>
+
                                         <a href="{{route('contact')}}">Contact </a>
+                                    </li>
+                                    <li>
+
+                                        <a href="/userpanel">PROFILE </a>
                                     </li>
                                 </ul>
                             </nav>

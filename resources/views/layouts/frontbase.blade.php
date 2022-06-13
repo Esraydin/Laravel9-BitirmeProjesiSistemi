@@ -46,5 +46,3 @@
 @yield('content')
 @include("home.footer")
 @yield('foot')
-
-

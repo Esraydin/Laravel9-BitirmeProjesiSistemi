@@ -6,10 +6,11 @@
 
         @foreach($sliderdata as $rs)
             <!-- Slide  image -->
-                <img src="{{Storage::url($rs->image)}}" class="h-75 w-100" title="#caption-{{$loop->iteration}}"/>
+                <img src="{{Storage::url($rs->image)}}" title="#caption-{{$loop->iteration}}">
 
             @endforeach
         </div>
+
 
         <div class="container">
             <div class="row">
@@ -18,7 +19,7 @@
                     @foreach($sliderdata as $rs)
                         <div class="nivo-caption" id="caption-{{$loop->iteration}}">
                             <div>
-                                <h2>{{$rs->title}}</strong></h2>
+                                <h2>{{$rs->category->title}}</strong></h2>
                                 <p>
                                     {{$rs->title}}
                                 </p>

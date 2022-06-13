@@ -1,6 +1,7 @@
 @extends('layouts.frontbase')
 
-@section('description', $setting->title)
+@section('title',$setting->title)
+@section('description', $setting->description)
 @section('keyword', $setting->keyword)
 @section('icon', Storage::url($setting->icon))
 

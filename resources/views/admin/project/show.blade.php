@@ -16,24 +16,22 @@
             </ol>
         </nav>
     </div>
-    <div class ="row mb-2">
-        <div class="col-sm-3">
-            <a href="{{route('admin.project.edit',['id'=>$data->id])}}" class="btn btn-gradient-info btn-rounded btn-fw" style="width:100px">edit</a>
-
-        </div>
+            <div class="row mb-2">
 
 
-        <div class="col-sm-3">
-            <a href="{{route('admin.project.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure?')" class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
-                delete</a>
-        </div>
+                <div class="col-sm-3">
+                    <a href="{{route('admin.comment.destroy',['id'=>$data->id])}}"
+                       onclick="return confirm('Deleting !! Are you sure?')"
+                       class="btn btn-gradient-danger btn-rounded btn-fw" style="width:100px">
+                        delete</a>
+                </div>
 
-    </div>
+            </div>
 
-    <div class="card">
-        <div class="card-body">
-            <form class="form" action="/admin/project/update/{{$data->id}}" method="post" >
-                @csrf
+            <div class="card">
+                <div class="card-body">
+                    <form class="form" action="/admin/project/update/{{$data->id}}" method="post">
+                        @csrf
 
                 <div class="card">
 
